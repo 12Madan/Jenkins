@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "user running the script"
 
-a=3
-b=3
-c=sum((a+b))
+def a=3
+def b=3
+def c=sum((a+b))
 echo "$c"
