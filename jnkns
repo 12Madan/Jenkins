@@ -1,0 +1,5 @@
+node {
+    stages {
+        stage('Build') {
+            steps { echo "Build stage running" }
+        }
