@@ -11,6 +11,7 @@ pipeline {
 
     stages {
     stage ('Build') {
+    steps{
     echo "pulling latest code"
     git pull origin main
     }
