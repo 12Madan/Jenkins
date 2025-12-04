@@ -1,15 +1,37 @@
 pipeline {
     agent any
 
+    parameters {
+        choice(name: 'ENV', choices: ['dev', 'qa', 'prod'], description: 'Select Environment')
+    }
+
     stages {
-        stage('Clone Repository') {
+        stage('Clone Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/12Madan/Jenkins.git'
+                git branch: 'main', url: 'https://github.com/your-username/student-service.git'
             }
         }
 
-        stage('Pull Latest Code') {
+        stage('Print Environment') {
             steps {
-                sh "git pull origin main"
+                echo "Environment selected: ${params.ENV}"
             }
         }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    if (params.ENV == 'dev') {
+                        echo "Deploying to DEV environment"
+                    }
+                    if (params.ENV == 'qa') {
+                        echo "Deploying to QA environment"
+                    }
+                    if (params.ENV == 'prod') {
+                        echo "Deploying to PROD environment"
+                    }
+                }
+            }
+        }
+    }
+}
