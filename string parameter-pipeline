@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'USERNAME', defaultValue: 'admin', description: 'User Name')
+    }
+
+    stages {
+        stage('Use Parameter') {
+            steps {
+                echo "You entered username: ${params.USERNAME}"
+            }
+        }
+    }
+}
