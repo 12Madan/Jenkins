@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    
+    environment {
+        APP_NAME = "student-service"
+        ENV = "DEV"
+    }
+
+    stages {
+        stage('Check') {
+            steps {
+                echo "Application = ${APP_NAME}"
+                echo "Environment = ${ENV}"
+            }
+        }
+    }
+}
