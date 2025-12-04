@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    stages {
+        stage('Print Variables') {
+            steps {
+                echo "Job Name: ${JOB_NAME}"
+                echo "Build Number: ${BUILD_NUMBER}"
+                echo "Workspace Path: ${WORKSPACE}"
+                echo "Build URL: ${BUILD_URL}"
+            }
+        }
+    }
+}
